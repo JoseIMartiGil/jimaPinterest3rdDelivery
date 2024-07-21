@@ -1,0 +1,285 @@
+:root {
+    --card_width: 250px;
+    --row_increment: 10px;
+    --card_border_radius: 16px;
+    --card_small: 26;
+    --card_medium: 33;
+    --card_large: 40;
+    --card-bg-color: #fff;
+    --card-border-radius: 8px;
+    --card-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    background-color: none;
+}
+
+header {
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    height: 20px;
+    width: 20px;
+}
+
+.icons img{
+    height: 20px;
+    width: 20px;
+    margin:10px 10px;
+}
+
+nav{
+    margin-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+}
+
+nav ul li a:hover {
+    background-color: #000000;
+    color:#ffffff;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #e9e9e9;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    flex-grow: 1;
+    margin: 0 1rem;
+}
+
+.search-container input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0.5rem;
+    flex-grow: 1;
+}
+
+.search-container img{
+    height: 20px;
+    width: 20px;
+    margin-right: 0.5rem;
+}
+
+.cardContainer {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card_width));
+    grid-auto-rows: auto;
+    justify-content: center;
+
+}
+
+.cardDiv{
+    margin: 10px;
+    background-color: var(--card-bg-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+}
+
+.card {
+    padding: 0;
+    margin: 15px 10px;
+    border-radius: var(--card_border_radius);
+    background-color: red;
+}
+
+.card_small {
+    grid-row-end: span var(--card_small);
+}
+
+.card_medium {
+    grid-row-end: span var(--card_medium);
+}
+
+.card_large {
+    grid-row-end: span var(--card_large);
+}
+
+.image_small {
+    height: 150px;
+    object-fit: cover;
+}
+
+.image_medium {
+    height: 250px;
+    object-fit: cover;
+}
+
+.image_large  {
+    height: 350px;
+    object-fit: cover;
+}
+  
+.imageMainCard{
+    width: 92%;
+    margin:10px 10px;
+    margin-bottom: 0;
+    transition: 0.3s ease;
+}
+
+.imageMainCard:hover{
+    filter: brightness(50%);
+}
+
+.imageMainCardContainer {
+    position: relative;
+    width: 92%;
+    margin: 10px;
+} 
+
+.hoverButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.imageMainCardContainer:hover .hoverButton {
+    display: block;
+}
+
+.iconContainer {
+    position: absolute;
+    width: 40px; /* Ajusta según el tamaño de tus iconos */
+    height: 60px; /* Altura total del contenedor del icono y el texto */
+    display: none; /* Oculto por defecto, se muestra en hover */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.heartContainer {
+    top: 10px;
+    left: 10px;
+    border-radius: 50%; /* Para hacer el círculo alrededor del icono */
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo semi-transparente */
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.photoContainer {
+    top: 10px;
+    right: 10px;
+    border-radius: 50%; /* Para hacer el círculo alrededor del icono */
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo semi-transparente */
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.iconImage {
+    width: 20px;
+    height: 20px;
+    padding: 5px; /* Espaciado dentro del círculo */
+}
+
+.iconText {
+    color: white;
+    border-radius: 50%;
+    width: 20px; /* Ajusta según el tamaño deseado */
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -5px; /* Ajusta para posicionar correctamente el texto debajo del icono */
+}
+
+.imageMainCardContainer:hover .iconContainer {
+    display: flex;
+}
+
+.card-footer {
+    background-color: none;
+    border-bottom-left-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Altura automática basada en el contenido */
+    margin-bottom: 5px;
+}
+
+.card-footer-image {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    justify-content: center;
+    transform: translate(80px,-40px);
+    box-shadow: var(--card-box-shadow);
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.card-footer .user-info .share-icon {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.user-info p {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+
+.card-footer-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-footer-data img{
+    margin-right: 5px;
+}  
