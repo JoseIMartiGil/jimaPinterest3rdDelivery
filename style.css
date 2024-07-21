@@ -35,12 +35,14 @@ header {
 .logo img {
     height: 20px;
     width: 20px;
+    cursor: pointer;
 }
 
 .icons img{
     height: 20px;
     width: 20px;
     margin:10px 10px;
+    cursor: pointer;
 }
 
 nav{
@@ -98,7 +100,6 @@ nav ul li a:hover {
     grid-template-columns: repeat(auto-fill, var(--card_width));
     grid-auto-rows: auto;
     justify-content: center;
-
 }
 
 .cardDiv{
@@ -282,4 +283,10 @@ nav ul li a:hover {
 
 .card-footer-data img{
     margin-right: 5px;
-}  
+}
+
+@media (max-width: 700px) {
+    .toHideIconNav {
+        display: none;
+    }
+}

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="logo">
       <img src="./assets/logo.png" alt="Logo">
     </div>
-    <nav>
+    <nav class="toHideIconNav">
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Explorar</a></li>
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <input type="text" placeholder="Buscar">
     </div>
     <div class="icons">
-      <img src="./assets/bell.png" alt="Notificaciones">
-      <img src="./assets/feedback.png" alt="Notificaciones">
+      <img class="toHideIconNav" src="./assets/bell.png" alt="Notificaciones">
+      <img class="toHideIconNav" src="./assets/feedback.png" alt="Feedback">
       <img src="./assets/profile.png" alt="Perfil">
     </div>
   `;
