@@ -1,8 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {
+//https://cs.fyi/guide/secret-management-best-practices
+let cards = []; 
+
+function renderNav(){
   const navContainer = document.querySelector('.nav-container');
   navContainer.innerHTML = `
     <div class="logo">
-      <img src="./assets/logo.png" alt="Logo">
+      <img src="./assets/logo.png" alt="Logo" id="logoHome">
     </div>
     <nav class="toHideIconNav">
       <ul>
@@ -13,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </nav>
     <div class="search-container">
       <img src="./assets/find.png" alt="Buscar">
-      <input type="text" placeholder="Buscar">
+      <input id="textSearch" type="text" placeholder="Buscar. Haz click en Enter">
     </div>
     <div class="icons">
       <img class="toHideIconNav" src="./assets/bell.png" alt="Notificaciones">
@@ -21,29 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <img src="./assets/profile.png" alt="Perfil">
     </div>
   `;
+  const logo = document.getElementById('logoHome');
+  logo.addEventListener('click', () => {
+    fetchFromUnsplash();
+  });
 
-  const cards = [
-      { title: 'Card 1', description: 'Description for card 1', image: 'https://picsum.photos/200/300', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32',borderColor:'red' , hearts:90, photo:30 },
-      { title: 'Card 2', description: 'Description for card 2', image: 'https://picsum.photos/200/301', user: 'Tom Williams', date: '05/10/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'green', hearts:0, photo:30},
-      { title: 'Card 3', description: 'Description for card 3', image: 'https://picsum.photos/200/302', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32',borderColor:'yellow', hearts:10, photo:30 },
-      { title: 'Card 4', description: 'Description for card 4', image: 'https://picsum.photos/200/303', user: 'Tom Williams', date: '26/3/2024', profileImage: 'https://picsum.photos/32' ,borderColor:'purple', hearts:120, photo:30},
-      { title: 'Card 5', description: 'Description for card 5', image: 'https://picsum.photos/200/304', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32',borderColor:'red', hearts:900, photo:30 },
-      { title: 'Card 6', description: 'Description for card 1', image: 'https://picsum.photos/200/300', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'green', hearts:9, photo:30},
-      { title: 'Card 7', description: 'Description for card 2', image: 'https://picsum.photos/200/301', user: 'Tom Williams', date: '05/10/2023', profileImage: 'https://picsum.photos/32',borderColor:'green' , hearts:10, photo:30},
-      { title: 'Card 8', description: 'Description for card 3', image: 'https://picsum.photos/200/302', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'yellow', hearts:20, photo:30},
-      { title: 'Card 9', description: 'Description for card 4', image: 'https://picsum.photos/200/303', user: 'Tom Williams', date: '26/3/2024', profileImage: 'https://picsum.photos/32',borderColor:'purple', hearts:900, photo:30 },
-      { title: 'Card 10', description: 'Description for card 5', image: 'https://picsum.photos/200/304', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32',borderColor:'brown', hearts:950, photo:30 },
-      { title: 'Card 11', description: 'Description for card 1', image: 'https://picsum.photos/200/300', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'violet', hearts:40, photo:30},
-      { title: 'Card 12', description: 'Description for card 2', image: 'https://picsum.photos/200/301', user: 'Tom Williams', date: '05/10/2023', profileImage: 'https://picsum.photos/32',borderColor:'pink', hearts:34, photo:30},
-      { title: 'Card 13', description: 'Description for card 3', image: 'https://picsum.photos/200/302', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'orange', hearts:91, photo:30},
-      { title: 'Card 14', description: 'Description for card 4', image: 'https://picsum.photos/200/303', user: 'Tom Williams', date: '26/3/2024', profileImage: 'https://picsum.photos/32' ,borderColor:'green', hearts:19, photo:30},
-      { title: 'Card 15', description: 'Description for card 5', image: 'https://picsum.photos/200/304', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'red', hearts:34, photo:30},
-      { title: 'Card 16', description: 'Description for card 1', image: 'https://picsum.photos/200/300', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'green', hearts:23, photo:30},
-      { title: 'Card 17', description: 'Description for card 2', image: 'https://picsum.photos/200/301', user: 'Tom Williams', date: '05/10/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'violet', hearts:22, photo:30},
-      { title: 'Card 18', description: 'Description for card 3', image: 'https://picsum.photos/200/302', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'green', hearts:0, photo:30},
-      { title: 'Card 19', description: 'Description for card 4', image: 'https://picsum.photos/200/303', user: 'Tom Williams', date: '26/3/2024', profileImage: 'https://picsum.photos/32' ,borderColor:'yellow', hearts:10, photo:30},
-      { title: 'Card 20', description: 'Description for card 5', image: 'https://picsum.photos/200/304', user: 'Natalia Sanchez', date: '26/11/2023', profileImage: 'https://picsum.photos/32' ,borderColor:'brown', hearts:12, photo:30},
-  ];
+}
+
+function renderCards() {
   const cardsContainer = document.querySelector('.cardContainer');
   cards.forEach((card, index) => {
     const cardDiv = document.createElement('div');
@@ -90,4 +78,78 @@ document.addEventListener('DOMContentLoaded', () => {
     cardsContainer.appendChild(cardDiv);
   });
   
+};
+
+
+const UNSPLASH_ACCESS_KEY = 'GymD1Pec4fPpm1OcPahSXs3VydEWaVjF4W_GGJLgDNo';
+async function fetchFromUnsplash(query = '', fallback = false) {
+  const orderByOptions = 'latest';
+  let url = query.trim() ?
+    `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&order_by=${orderByOptions}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=20` :
+    `https://api.unsplash.com/photos?order_by=${orderByOptions}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=20`;
+
+  const cardsContainer = document.querySelector('.cardContainer');
+  const messageContainer = document.querySelector('.messageContainer');
+  cardsContainer.innerHTML='';
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    if ((data.results && data.results.length > 0) || data.length > 0) {
+      cards = (data.results || data).map(img => ({
+        title: img.description || 'No title',
+        description: img.alt_description || 'No description',
+        image: img.urls.small,
+        user: img.user.name,
+        date: new Date(img.created_at).toLocaleDateString(),
+        profileImage: img.user.profile_image.medium,
+        borderColor: 'default',
+        hearts: img.likes,
+        photo: img.user.total_photos
+      }));
+      if(messageContainer && !fallback){
+        messageContainer.innerHTML = '';
+      }
+      renderCards();
+    }else if (!fallback) {
+      // Si no se encuentran imágenes y es la primera búsqueda, intenta con "gatos"
+      fetchFromUnsplash('gatos', true);
+      if(messageContainer){
+        messageContainer.innerHTML = '<p>Usa otra palabra o término para una búsqueda correcta</p>';
+      }  
+    }
+     else {
+      if(messageContainer){
+        messageContainer.innerHTML = '<p>No se han encontrado imágenes para tus términos de búsqueda.</p>';
+      }
+    }
+  } catch (error) {
+    console.error('Error fetching images:', error);
+    if(messageContainer){
+      messageContainer.innerHTML = '<p>Hubo un error al cargar las imágenes. Por favor, inténtalo de nuevo.</p>';
+    }
+  } finally{
+    const searchInput = document.querySelector('#textSearch');
+    searchInput.value=''
+  }
+}
+
+function setupEventListeners(searchInput) {
+  
+  searchInput.addEventListener('keydown', (event) => {
+    console.log("Key pressed:", event.key, "| Key code:", event.keyCode, "| Search Input:", searchInput.value.trim());
+      if (event.key === 'Enter') {
+        fetchFromUnsplash(searchInput.value);
+      }
+    });
+
+}
+document.addEventListener('DOMContentLoaded', () => {
+  renderNav();
+  fetchFromUnsplash();
+  const searchInput = document.querySelector('#textSearch');
+  if (searchInput) {
+    setupEventListeners(searchInput);
+  }
 });
+

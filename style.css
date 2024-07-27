@@ -93,6 +93,18 @@ nav ul li a:hover {
     margin-right: 0.5rem;
 }
 
+.messageContainer {
+    width: 100%;             /* Asegura que el contenedor ocupe toda la anchura disponible */
+    text-align: center;      /* Centra el texto dentro del contenedor */
+    margin-top: 20px;        /* Añade espacio arriba del contenedor */
+    margin-bottom: 20px;     /* Añade espacio debajo del contenedor */
+    padding: 10px;           /* Añade un poco de padding dentro del contenedor para que el texto no esté pegado a los bordes */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Opcional: añade una sombra ligera para destacar el contenedor */
+    background-color: #fff;  /* Fondo blanco para el contenedor */
+    border-radius: 5px;      /* Bordes redondeados para estética */
+  }
+  
+
 .cardContainer {
     margin: 0;
     padding: 0;
