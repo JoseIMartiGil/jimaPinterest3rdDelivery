@@ -23,7 +23,7 @@ header {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #e0e0e0;
-  }
+}
   
 .nav-container {
     display: flex;
@@ -94,14 +94,14 @@ nav ul li a:hover {
 }
 
 .messageContainer {
-    width: 100%;             /* Asegura que el contenedor ocupe toda la anchura disponible */
-    text-align: center;      /* Centra el texto dentro del contenedor */
-    margin-top: 20px;        /* Añade espacio arriba del contenedor */
-    margin-bottom: 20px;     /* Añade espacio debajo del contenedor */
-    padding: 10px;           /* Añade un poco de padding dentro del contenedor para que el texto no esté pegado a los bordes */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Opcional: añade una sombra ligera para destacar el contenedor */
-    background-color: #fff;  /* Fondo blanco para el contenedor */
-    border-radius: 5px;      /* Bordes redondeados para estética */
+    width: 100%;            
+    text-align: center;      
+    margin-top: 20px;        
+    margin-bottom: 20px;     
+    padding: 10px;          
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    background-color: #fff;  
+    border-radius: 5px;      
   }
   
 
@@ -192,9 +192,9 @@ nav ul li a:hover {
 
 .iconContainer {
     position: absolute;
-    width: 40px; /* Ajusta según el tamaño de tus iconos */
-    height: 60px; /* Altura total del contenedor del icono y el texto */
-    display: none; /* Oculto por defecto, se muestra en hover */
+    width: 40px; 
+    height: 60px; 
+    display: none; 
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -204,8 +204,8 @@ nav ul li a:hover {
 .heartContainer {
     top: 10px;
     left: 10px;
-    border-radius: 50%; /* Para hacer el círculo alrededor del icono */
-    background-color: rgba(255, 255, 255, 0.6); /* Fondo semi-transparente */
+    border-radius: 50%; 
+    background-color: rgba(255, 255, 255, 0.6); 
     height: 40px;
     width: 40px;
     cursor: pointer;
@@ -214,8 +214,8 @@ nav ul li a:hover {
 .photoContainer {
     top: 10px;
     right: 10px;
-    border-radius: 50%; /* Para hacer el círculo alrededor del icono */
-    background-color: rgba(255, 255, 255, 0.6); /* Fondo semi-transparente */
+    border-radius: 50%; 
+    background-color: rgba(255, 255, 255, 0.6); 
     height: 40px;
     width: 40px;
     cursor: pointer;
@@ -224,18 +224,18 @@ nav ul li a:hover {
 .iconImage {
     width: 20px;
     height: 20px;
-    padding: 5px; /* Espaciado dentro del círculo */
+    padding: 5px; 
 }
 
 .iconText {
     color: white;
     border-radius: 50%;
-    width: 20px; /* Ajusta según el tamaño deseado */
+    width: 20px; 
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -5px; /* Ajusta para posicionar correctamente el texto debajo del icono */
+    margin-top: -5px; 
 }
 
 .imageMainCardContainer:hover .iconContainer {
@@ -249,7 +249,7 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: auto; /* Altura automática basada en el contenido */
+    height: auto; 
     margin-bottom: 5px;
 }
 
@@ -295,6 +295,14 @@ nav ul li a:hover {
 
 .card-footer-data img{
     margin-right: 5px;
+}
+
+#footerMenu{
+    width: 100%;
+}
+
+#footerMenu p{
+    text-align: center;
 }
 
 @media (max-width: 700px) {
